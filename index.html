@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Velvet Vesper Revue | Burlesque & Cabaret Entertainment</title>
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg-dark: #12070d;
+      --bg-deep: #1d0b14;
+      --wine: #6f1d3a;
+      --rose: #b23a63;
+      --gold: #d6b36a;
+      --cream: #f7efe6;
+      --muted: #d8c7bb;
+    }
+
+    body {
+      background: linear-gradient(180deg, #0f060b 0%, #1b0a13 55%, #12070d 100%);
+      color: var(--cream);
+      font-family: Arial, sans-serif;
+    }
+
+    h1, h2, h3, h4, .brand-font {
+      font-family: Georgia, "Times New Roman", serif;
+      letter-spacing: 0.5px;
+    }
+
+    .navbar {
+      background: rgba(10, 3, 7, 0.88);
+      backdrop-filter: blur(8px);
+    }
+
+    .navbar-brand {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 1.4rem;
+    }
+
+    .navbar-brand:hover,
+    .nav-link:hover {
+      color: #fff;
+    }
+
+    .nav-link {
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(rgba(10, 3, 7, 0.7), rgba(10, 3, 7, 0.82)),
+        url("https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1600&q=80")
+        center center / cover no-repeat;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 120px;
+      background: linear-gradient(to top, #12070d, transparent);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 0.45rem 0.95rem;
+      border: 1px solid rgba(214, 179, 106, 0.5);
+      color: var(--gold);
+      border-radius: 50px;
+      font-size: 0.9rem;
+      margin-bottom: 1.25rem;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 7vw, 5.4rem);
+      line-height: 1.02;
+      margin-bottom: 1rem;
+    }
+
+    .hero p.lead {
+      color: #f0ddd0;
+      max-width: 720px;
+      font-size: 1.15rem;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), #f1d08a);
+      color: #2a1610;
+      border: none;
+      font-weight: 700;
+      padding: 0.9rem 1.4rem;
+    }
+
+    .btn-gold:hover {
+      background: linear-gradient(135deg, #efcf87, #ffdfa0);
+      color: #1a0d08;
+    }
+
+    .btn-outline-light:hover {
+      color: #12070d;
+    }
+
+    .section-title {
+      color: var(--gold);
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 0.65rem;
+      display: inline-block;
+    }
+
+    .content-section {
+      padding: 90px 0;
+    }
+
+    .soft-card {
+      background: linear-gradient(180deg, rgba(178, 58, 99, 0.12), rgba(255, 255, 255, 0.04));
+      border: 1px solid rgba(214, 179, 106, 0.18);
+      border-radius: 22px;
+      padding: 1.5rem;
+      height: 100%;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+    }
+
+    .performer-card img {
+      height: 360px;
+      object-fit: cover;
+      border-radius: 18px;
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    .performer-name {
+      color: var(--gold);
+      font-size: 1.4rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .muted-text {
+      color: var(--muted);
+    }
+
+    .event-list .event-item {
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .event-list .event-item:last-child {
+      border-bottom: none;
+    }
+
+    .event-date {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+    }
+
+    .feature-strip {
+      background: linear-gradient(135deg, rgba(111, 29, 58, 0.85), rgba(35, 9, 20, 0.92));
+      border-top: 1px solid rgba(214, 179, 106, 0.15);
+      border-bottom: 1px solid rgba(214, 179, 106, 0.15);
+    }
+
+    .gallery-box {
+      height: 260px;
+      border-radius: 20px;
+      background-size: cover;
+      background-position: center;
+      border: 1px solid rgba(214, 179, 106, 0.18);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.22);
+    }
+
+    .cta-block {
+      background: linear-gradient(180deg, rgba(214, 179, 106, 0.10), rgba(178, 58, 99, 0.10));
+      border: 1px solid rgba(214, 179, 106, 0.2);
+      border-radius: 28px;
+      padding: 2.25rem;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand brand-font" href="#">Velvet Vesper Revue</a>
+      <button
+        class="navbar-toggler border-secondary"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navMenu"
+        aria-controls="navMenu"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#performers">Performers</a></li>
+          <li class="nav-item"><a class="nav-link" href="#events">Shows</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+          <li class="nav-item ms-lg-3">
+            <a class="btn btn-gold rounded-pill" href="#contact">Book the Revue</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container position-relative" style="z-index: 2;">
+      <div class="row">
+        <div class="col-lg-8">
+          <span class="hero-badge">Vintage Glamour • Modern Cabaret • Private Events</span>
+          <h1 class="brand-font">A Bold Burlesque Experience With Style, Spark, and Spectacle</h1>
+          <p class="lead mb-4">
+            Velvet Vesper Revue brings together classic burlesque charm, theatrical energy,
+            and a richly styled cabaret atmosphere for audiences who want something more
+            memorable than ordinary nightlife. From private celebrations to branded events,
+            our performances are designed to leave the room buzzing.
+          </p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="#contact" class="btn btn-gold btn-lg rounded-pill">Request a Booking</a>
+            <a href="#events" class="btn btn-outline-light btn-lg rounded-pill">See Upcoming Shows</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- FEATURE STRIP -->
+  <section class="feature-strip py-4">
+    <div class="container">
+      <div class="row text-center gy-3">
+        <div class="col-md-4">
+          <strong class="text-white">Elegant Stage Presence</strong><br>
+          <span class="muted-text">Classic burlesque influence with a fresh production style</span>
+        </div>
+        <div class="col-md-4">
+          <strong class="text-white">Ideal for Events</strong><br>
+          <span class="muted-text">Private parties, nightlife features, themed occasions, and showcases</span>
+        </div>
+        <div class="col-md-4">
+          <strong class="text-white">Troupe-Style Entertainment</strong><br>
+          <span class="muted-text">A curated cast, polished visuals, and unforgettable pacing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="content-section">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <span class="section-title">About the Revue</span>
+          <h2 class="brand-font display-5 mb-3">Where Old-Hollywood Mood Meets Contemporary Performance</h2>
+          <p class="muted-text fs-5">
+            Velvet Vesper Revue was created for audiences who love a little drama, a little glamour,
+            and a lot of personality. Inspired by the spirit of classic cabaret and the visual flair
+            of vintage stage entertainment, the show blends tease, costume, movement, music, and
+            theatrical confidence into one polished experience.
+          </p>
+          <p class="muted-text">
+            Whether appearing in an intimate venue, a private party setting, or a larger event lineup,
+            the goal is always the same: deliver a captivating atmosphere that feels elevated, alluring,
+            and distinctly unforgettable.
+          </p>
+        </div>
+        <div class="col-lg-6">
+          <div class="soft-card">
+            <h3 class="brand-font mb-3">Why Guests Love the Show</h3>
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <div class="soft-card">
+                  <h4 class="h5 text-white">Stylish Production</h4>
+                  <p class="muted-text mb-0">Curated costumes, mood-forward visuals, and polished stage appeal.</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="soft-card">
+                  <h4 class="h5 text-white">Memorable Talent</h4>
+                  <p class="muted-text mb-0">Distinct personalities and performance-driven character on stage.</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="soft-card">
+                  <h4 class="h5 text-white">Flexible Booking</h4>
+                  <p class="muted-text mb-0">A great fit for clubs, parties, celebrations, and curated events.</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="soft-card">
+                  <h4 class="h5 text-white">Strong Brand Feel</h4>
+                  <p class="muted-text mb-0">Designed to feel immersive, photo-ready, and full of atmosphere.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERFORMERS -->
+  <section id="performers" class="content-section pt-0">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-title">Featured Performers</span>
+        <h2 class="brand-font display-5">Meet the Cast</h2>
+        <p class="muted-text mx-auto" style="max-width: 760px;">
+          Give your landing page a troupe feel by featuring a few distinct performer profiles.
+          This helps the brand feel established, visual, and event-ready.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="soft-card performer-card">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80" alt="Performer portrait">
+            <h3 class="performer-name brand-font">Ruby Nocturne</h3>
+            <p class="muted-text mb-0">
+              Known for dramatic entrances, slow-burn stage presence, and a glamorous old-school silhouette.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="soft-card performer-card">
+            <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=900&q=80" alt="Cabaret style performer">
+            <h3 class="performer-name brand-font">Scarlett Sable</h3>
+            <p class="muted-text mb-0">
+              A playful crowd favorite with high-energy movement, confident attitude, and polished costume styling.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="soft-card performer-card">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80" alt="Stage performer portrait">
+            <h3 class="performer-name brand-font">Viva Luxe</h3>
+            <p class="muted-text mb-0">
+              Blending theatrical flair with sultry cabaret aesthetics, Viva brings striking visual storytelling to the stage.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section id="events" class="content-section">
+    <div class="container">
+      <div class="row g-5 align-items-start">
+        <div class="col-lg-6">
+          <span class="section-title">Upcoming Shows</span>
+          <h2 class="brand-font display-5 mb-3">Spotlight Events & Featured Nights</h2>
+          <p class="muted-text">
+            Use this section to promote venue dates, ticketed nights, themed showcases, and seasonal productions.
+            It gives the site momentum and helps the troupe feel active and established.
+          </p>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="soft-card event-list">
+            <div class="event-item">
+              <div class="event-date">MAY 16</div>
+              <h3 class="h4 text-white mt-2 mb-1">Midnight Velvet Showcase</h3>
+              <p class="muted-text mb-1">A candlelit cabaret-inspired evening with classic glamour and bold choreography.</p>
+              <small class="text-light">The Grand Marquee • 8:00 PM</small>
+            </div>
+
+            <div class="event-item">
+              <div class="event-date">JUNE 07</div>
+              <h3 class="h4 text-white mt-2 mb-1">Champagne & Feathers</h3>
+              <p class="muted-text mb-1">An upscale production night perfect for date nights, groups, and stylish celebrations.</p>
+              <small class="text-light">Velour Room • 9:30 PM</small>
+            </div>
+
+            <div class="event-item">
+              <div class="event-date">JULY 19</div>
+              <h3 class="h4 text-white mt-2 mb-1">Summer After Dark Revue</h3>
+              <p class="muted-text mb-1">A theatrical late-night set featuring costume reveals, spotlight solos, and ensemble moments.</p>
+              <small class="text-light">The Crimson Lounge • 8:30 PM</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="content-section pt-0">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-title">Visual Mood</span>
+        <h2 class="brand-font display-5">Gallery Highlights</h2>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="gallery-box" style="background-image:url('https://images.unsplash.com/photo-1515169067868-5387ec356754?auto=format&fit=crop&w=1000&q=80');"></div>
+        </div>
+        <div class="col-md-4">
+          <div class="gallery-box" style="background-image:url('https://images.unsplash.com/photo-1516280030429-27679b3dc9cf?auto=format&fit=crop&w=1000&q=80');"></div>
+        </div>
+        <div class="col-md-4">
+          <div class="gallery-box" style="background-image:url('https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1000&q=80');"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / CONTACT -->
+  <section id="contact" class="content-section">
+    <div class="container">
+      <div class="cta-block text-center">
+        <span class="section-title">Bookings & Inquiries</span>
+        <h2 class="brand-font display-5 mb-3">Bring the Revue to Your Next Event</h2>
+        <p class="muted-text fs-5 mx-auto" style="max-width: 760px;">
+          Looking for a burlesque-inspired show with elegance, personality, and stage-ready style?
+          Velvet Vesper Revue is available for curated events, private functions, nightlife programming,
+          and unforgettable specialty performances.
+        </p>
+
+        <div class="row justify-content-center mt-4 g-3">
+          <div class="col-md-4">
+            <div class="soft-card">
+              <h3 class="h5 text-white">Email</h3>
+              <p class="muted-text mb-0">hello@velvetvesperrevue.com</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="soft-card">
+              <h3 class="h5 text-white">Phone</h3>
+              <p class="muted-text mb-0">(000) 000-0000</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="soft-card">
+              <h3 class="h5 text-white">Instagram</h3>
+              <p class="muted-text mb-0">@velvetvesperrevue</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4 d-flex justify-content-center flex-wrap gap-3">
+          <a href="mailto:hello@velvetvesperrevue.com" class="btn btn-gold btn-lg rounded-pill">Email for Availability</a>
+          <a href="#" class="btn btn-outline-light btn-lg rounded-pill">View Press Kit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-4">
+    <div class="container text-center">
+      <p class="mb-1">© 2026 Velvet Vesper Revue. All rights reserved.</p>
+      <small>Burlesque-inspired entertainment with vintage glamour and modern stage energy.</small>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
